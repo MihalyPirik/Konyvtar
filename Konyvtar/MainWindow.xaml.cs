@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Konyvtar.Pages;
 
 namespace Konyvtar
 {
@@ -23,6 +24,21 @@ namespace Konyvtar
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void konyvLista_M_Click(object sender, RoutedEventArgs e)
+        {
+            nyito_FRM.Content = new KonyvekLista();
+        }
+
+        private void konyv_M_Click(object sender, RoutedEventArgs e)
+        {
+            nyito_FRM.Content = new Konyv();
+        }
+
+        private void kolcsonzes_M_Click(object sender, RoutedEventArgs e)
+        {
+            nyito_FRM.Content = new Kolcsonzes();
         }
     }
 }

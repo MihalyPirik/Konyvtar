@@ -13,9 +13,9 @@
         </Grid.RowDefinitions>
         
         <Menu Padding="0,5,0,5">
-            <MenuItem Header="Könyvek listázása" x:Name="konyvLista_M"/>
-            <MenuItem Header="Könyv" x:Name="konyv_M"/>
-            <MenuItem Header="Kölcsönzés" x:Name="kolcsonzes_M"/>
+            <MenuItem Header="Könyvek listázása" x:Name="konyvLista_M" Click="konyvLista_M_Click"/>
+            <MenuItem Header="Könyv" x:Name="konyv_M" Click="konyv_M_Click"/>
+            <MenuItem Header="Kölcsönzés" x:Name="kolcsonzes_M" Click="kolcsonzes_M_Click"/>
         </Menu>
 
         <Frame x:Name="nyito_FRM" NavigationUIVisibility="Hidden" Grid.Row="1"/>

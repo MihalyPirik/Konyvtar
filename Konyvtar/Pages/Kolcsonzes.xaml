@@ -9,6 +9,47 @@
       Title="Kolcsonzes">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Margin="5">
+            <Label Content="Tanulók:" FontWeight="Bold"/>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Osztály:"/>
+                <ComboBox x:Name="osztalyok_CBX" Width="80"/>
+                
+            </StackPanel>
+            <ListBox x:Name="tanulok_LB" Height="300"/>
+            <Label Content="Keresés:"/>
+            <TextBox x:Name="kereses_TXB"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Margin="5">
+            <Label Content="Kölcsönzött könyvek:" FontWeight="Bold"/>
+            <ListBox x:Name="kolcsonzottKonyvek_LB" Height="300">
+                <DataTemplate>
+                    <Border BorderBrush="Green" BorderThickness="1" Width="270" Padding="5">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Cím:" FontWeight="Bold"/>
+                                <TextBlock Text="Adatkötés"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Szerző:" FontWeight="Bold"/>
+                                <TextBlock Text="Adatkötés"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Kölcs.idő:" FontWeight="Bold"/>
+                                <TextBlock Text="Adatkötés"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox>
+            <Button x:Name="torol_BTN" Content="Törlés" Padding="5" Margin="0,5,0,5"/>
+        </StackPanel>
     </Grid>
 </Page>
