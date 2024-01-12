@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Konyvtar"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Könyvtár" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Menu Padding="0,5,0,5">
+            <MenuItem Header="Könyvek listázása" x:Name="konyvLista_M"/>
+            <MenuItem Header="Könyv" x:Name="konyv_M"/>
+            <MenuItem Header="Kölcsönzés" x:Name="kolcsonzes_M"/>
+        </Menu>
 
+        <Frame x:Name="nyito_FRM" NavigationUIVisibility="Hidden" Grid.Row="1"/>
+        
     </Grid>
 </Window>
