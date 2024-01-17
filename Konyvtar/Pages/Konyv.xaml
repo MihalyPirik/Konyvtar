@@ -48,9 +48,9 @@
                 <Label Content="Típus:" Width="100"/>
                 <ComboBox x:Name="tipus_CBX" Width="200"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button x:Name="Mentes_BTN" Content="Mentés" Margin="5" Padding="5" Width="100"/>
-                <Button x:Name="Megse_BTN" Content="Mégse" Margin="5" Padding="5" Width="100"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                <Button x:Name="mentes_BTN" Content="Mentés" Margin="5" Padding="5" Width="100"/>
+                <Button x:Name="megse_BTN" Content="Mégse" Margin="5" Padding="5" Width="100"/>
             </StackPanel>
         </StackPanel>
     </Grid>
