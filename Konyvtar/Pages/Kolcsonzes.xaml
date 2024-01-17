@@ -15,41 +15,59 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
+        <!--1.Oszlop-->
         <StackPanel Margin="5">
             <Label Content="Tanulók:" FontWeight="Bold"/>
             <StackPanel Orientation="Horizontal">
                 <Label Content="Osztály:"/>
                 <ComboBox x:Name="osztalyok_CBX" Width="80"/>
-                
             </StackPanel>
             <ListBox x:Name="tanulok_LB" Height="300"/>
             <Label Content="Keresés:"/>
             <TextBox x:Name="kereses_TXB"/>
         </StackPanel>
 
+        <!--2.oszlop-->
         <StackPanel Grid.Column="1" Margin="5">
             <Label Content="Kölcsönzött könyvek:" FontWeight="Bold"/>
             <ListBox x:Name="kolcsonzottKonyvek_LB" Height="300">
                 <DataTemplate>
-                    <Border BorderBrush="Green" BorderThickness="1" Width="270" Padding="5">
+                    <Border BorderBrush="Green" BorderThickness="1" Padding="5" Width="270">
                         <StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Cím:" FontWeight="Bold"/>
-                                <TextBlock Text="Adatkötés"/>
+                                <TextBlock Text="adatkötés"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Szerző:" FontWeight="Bold"/>
-                                <TextBlock Text="Adatkötés"/>
+                                <TextBlock Text="adatkötés"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Kölcs.idő:" FontWeight="Bold"/>
-                                <TextBlock Text="Adatkötés"/>
+                                <TextBlock Text="adatkötés"/>
                             </StackPanel>
                         </StackPanel>
                     </Border>
                 </DataTemplate>
             </ListBox>
-            <Button x:Name="torol_BTN" Content="Törlés" Padding="5" Margin="0,5,0,5"/>
+            <Button x:Name="torol_BTN" Content="Törlés" Padding="5" Margin="0,5,0,0"/>
+        </StackPanel>
+
+        <!--3.oszlop-->
+        <StackPanel Grid.Column="2" x:Name="kolcsonzes_SP">
+            <Label Content="Új könyv Kölcsönzés" FontWeight="Bold"/>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Szerző:" Margin="5"/>
+                <ComboBox x:Name="szerzok_CBX" Margin="5" Width="200"/>
+            </StackPanel>
+            <Label Content="Könyvek:" Margin="5"/>
+            <ListBox x:Name="konyvek_LB" Margin="5" Height="200"/>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Kiadva:" Margin="5"/>
+                <DatePicker x:Name="kiadva_DP" Margin="5" Width="200"/>
+                <Label Content="-ig" Margin="5"/>
+            </StackPanel>
+            <Button x:Name="kolcsonzes_BTN" Content="Kölcsönzés" Margin="5" Padding="5"/>
         </StackPanel>
     </Grid>
 </Page>
