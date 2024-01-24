@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Konyvtar.Model;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,20 @@ namespace Konyvtar.Pages
     /// </summary>
     public partial class KonyvPage : Page
     {
+        KonyvtarContext context = new KonyvtarContext();
         public KonyvPage()
         {
             InitializeComponent();
+            context.Szerzo.Load();
+            context.Konyv.Load();
+            szerzok_CBX.ItemsSource = context.Szerzo.Local.ToObservableCollection();
+
+
+        }
+
+        private void szerzok_CBX_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var lista = context.Konyv.Local.ToObservableCollection().Where(x => x.Szerzo.TeljesNev == ((Szerzo)szerzok_CBX.SelectedItem).TeljesNev).ToList();
         }
     }
 }

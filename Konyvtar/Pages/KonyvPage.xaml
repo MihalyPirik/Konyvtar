@@ -17,7 +17,7 @@
         <!--Könyv lista-->
         <StackPanel x:Name="konyvLista_SP">
             <Label Content="Szerzők:" Margin="5" FontWeight="Bold"/>
-            <ComboBox x:Name="szerzok_CBX" Margin="5"/>
+            <ComboBox x:Name="szerzok_CBX" Margin="5" DisplayMemberPath="TeljesNev" SelectionChanged="szerzok_CBX_SelectionChanged"/>
 
             <ListBox x:Name="konyvek_LB" Height="250" Margin="5"/>
             <Button x:Name="uj_BTN" Content="Új könyv" Margin="5" Padding="5"/>
