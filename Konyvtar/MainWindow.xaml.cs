@@ -33,7 +33,7 @@ namespace Konyvtar
 
         private void konyv_M_Click(object sender, RoutedEventArgs e)
         {
-            nyito_FRM.Content = new Konyv();
+            nyito_FRM.Content = new KonyvPage();
         }
 
         private void kolcsonzes_M_Click(object sender, RoutedEventArgs e)

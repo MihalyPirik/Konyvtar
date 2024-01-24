@@ -18,9 +18,9 @@ namespace Konyvtar.Pages
     /// <summary>
     /// Interaction logic for Konyv.xaml
     /// </summary>
-    public partial class Konyv : Page
+    public partial class KonyvPage : Page
     {
-        public Konyv()
+        public KonyvPage()
         {
             InitializeComponent();
         }
