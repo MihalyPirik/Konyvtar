@@ -22,7 +22,7 @@ namespace Konyvtar.Model
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Szerzo>().HasData(
-                new Szerzo() { Keresztnev = "Isaac", Vezeteknev = "Asimov", szerzoID = '1' },
+                new Szerzo() { Keresztnev = "Isaac", Vezeteknev = "Asimov", szerzoID = 1 },
                 new Szerzo() { Keresztnev = "Dick", Vezeteknev = "Philip", szerzoID = 2 },
                 new Szerzo() { Keresztnev = "Géza", Vezeteknev = "Gárdonyi", szerzoID = 3 }
                 );
@@ -35,7 +35,7 @@ namespace Konyvtar.Model
 
             modelBuilder.Entity<Konyv>().HasData(
                 new Konyv() { KonyvID = 1, Cim = "Ember a fellegvárban", Pontszam = 9, Oldalszam = 550, TipusID = 1, SzerzoID = 2 },
-                new Konyv() { KonyvID = 2, Cim = "Egri Csillago", Pontszam = 6, Oldalszam = 520, TipusID = 3, SzerzoID = 3 }
+                new Konyv() { KonyvID = 2, Cim = "Egri Csillagok", Pontszam = 6, Oldalszam = 520, TipusID = 3, SzerzoID = 3 }
                 );
         }
     }

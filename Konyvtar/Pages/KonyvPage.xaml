@@ -19,34 +19,30 @@
             <Label Content="Szerzők:" Margin="5" FontWeight="Bold"/>
             <ComboBox x:Name="szerzok_CBX" Margin="5" DisplayMemberPath="TeljesNev" SelectionChanged="szerzok_CBX_SelectionChanged"/>
 
-            <ListBox x:Name="konyvek_LB" Height="250" Margin="5"/>
-            <Button x:Name="uj_BTN" Content="Új könyv" Margin="5" Padding="5"/>
-            <Button x:Name="modosit_BTN" Content="Módosít" Margin="5" Padding="5"/>
+            <ListBox x:Name="konyvek_LB" Height="250" Margin="5" DisplayMemberPath="Cim"/>
+            <Button x:Name="uj_BTN" Content="Új könyv" Margin="5" Padding="5" Click="uj_BTN_Click"/>
+            <Button x:Name="modosit_BTN" Content="Módosít" Margin="5" Padding="5" Click="modosit_BTN_Click"/>
             <Button x:Name="torol_BTN" Content="Töröl" Margin="5" Padding="5"/>
         </StackPanel>
         
         <!--Könyv adatok-->
-        <StackPanel x:Name="konyv_SP" Grid.Column="1" Margin="5">
+        <StackPanel x:Name="konyv_SP" Grid.Column="1" Margin="5" IsEnabled="False">
             <Label Content="Könyv adatok:" Width="100"/>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label Content="Könyv címe:" Width="100"/>
-                <TextBox x:Name="nev_TXB" Width="200"/>
+                <TextBox x:Name="nev_TXB" Width="200" Text="{Binding KivKonyv.Cim}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label Content="Oldalszám:" Width="100"/>
-                <TextBox x:Name="oldal_TXB" Width="200"/>
+                <TextBox x:Name="oldal_TXB" Width="200" Text="{Binding KivKonyv.Oldalszam}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label Content="Pontszám:" Width="100"/>
-                <TextBox x:Name="pontszam_TXB" Width="200"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Content="Szerző:" Width="100"/>
-                <ComboBox x:Name="szerzo_CBX" Width="200"/>
+                <TextBox x:Name="pontszam_TXB" Width="200" Text="{Binding KivKonyv.Pontszam}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label Content="Típus:" Width="100"/>
-                <ComboBox x:Name="tipus_CBX" Width="200"/>
+                <ComboBox x:Name="tipus_CBX" Width="200" SelectedItem="{Binding KivKonyv.Tipus}" DisplayMemberPath="Nev"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
                 <Button x:Name="mentes_BTN" Content="Mentés" Margin="5" Padding="5" Width="100"/>
