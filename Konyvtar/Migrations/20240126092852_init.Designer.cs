@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Konyvtar.Migrations
 {
     [DbContext(typeof(KonyvtarContext))]
-    [Migration("20240124071841_init")]
+    [Migration("20240126092852_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -79,6 +79,26 @@ namespace Konyvtar.Migrations
                     b.HasIndex("TipusID");
 
                     b.ToTable("Konyv");
+
+                    b.HasData(
+                        new
+                        {
+                            KonyvID = 1,
+                            Cim = "Ember a fellegvárban",
+                            Oldalszam = 550,
+                            Pontszam = 9,
+                            SzerzoID = 2,
+                            TipusID = 1
+                        },
+                        new
+                        {
+                            KonyvID = 2,
+                            Cim = "Egri Csillago",
+                            Oldalszam = 520,
+                            Pontszam = 6,
+                            SzerzoID = 3,
+                            TipusID = 3
+                        });
                 });
 
             modelBuilder.Entity("Konyvtar.Model.Szerzo", b =>
@@ -100,6 +120,26 @@ namespace Konyvtar.Migrations
                     b.HasKey("szerzoID");
 
                     b.ToTable("Szerzo");
+
+                    b.HasData(
+                        new
+                        {
+                            szerzoID = 49,
+                            Keresztnev = "Isaac",
+                            Vezeteknev = "Asimov"
+                        },
+                        new
+                        {
+                            szerzoID = 2,
+                            Keresztnev = "Dick",
+                            Vezeteknev = "Philip"
+                        },
+                        new
+                        {
+                            szerzoID = 3,
+                            Keresztnev = "Géza",
+                            Vezeteknev = "Gárdonyi"
+                        });
                 });
 
             modelBuilder.Entity("Konyvtar.Model.Tanulo", b =>
@@ -145,6 +185,23 @@ namespace Konyvtar.Migrations
                     b.HasKey("TipusID");
 
                     b.ToTable("Tipus");
+
+                    b.HasData(
+                        new
+                        {
+                            TipusID = 1,
+                            Nev = "Sci-Fi"
+                        },
+                        new
+                        {
+                            TipusID = 2,
+                            Nev = "Fantasy"
+                        },
+                        new
+                        {
+                            TipusID = 3,
+                            Nev = "Documentary"
+                        });
                 });
 
             modelBuilder.Entity("Konyvtar.Model.Kolcsonzes", b =>

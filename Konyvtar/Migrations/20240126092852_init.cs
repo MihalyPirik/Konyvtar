@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace Konyvtar.Migrations
 {
     /// <inheritdoc />
@@ -123,6 +125,35 @@ namespace Konyvtar.Migrations
                         principalColumn: "TanuloID");
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.InsertData(
+                table: "Szerzo",
+                columns: new[] { "szerzoID", "Keresztnev", "Vezeteknev" },
+                values: new object[,]
+                {
+                    { 2, "Dick", "Philip" },
+                    { 3, "Géza", "Gárdonyi" },
+                    { 49, "Isaac", "Asimov" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Tipus",
+                columns: new[] { "TipusID", "Nev" },
+                values: new object[,]
+                {
+                    { 1, "Sci-Fi" },
+                    { 2, "Fantasy" },
+                    { 3, "Documentary" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Konyv",
+                columns: new[] { "KonyvID", "Cim", "Oldalszam", "Pontszam", "SzerzoID", "TipusID" },
+                values: new object[,]
+                {
+                    { 1, "Ember a fellegvárban", 550, 9, 2, 1 },
+                    { 2, "Egri Csillago", 520, 6, 3, 3 }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Kolcsonzes_KonyvID",
