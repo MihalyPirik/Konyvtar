@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Konyvtar.Migrations
 {
     [DbContext(typeof(KonyvtarContext))]
-    [Migration("20240126092852_init")]
-    partial class init
+    [Migration("20240201140742_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -93,7 +93,7 @@ namespace Konyvtar.Migrations
                         new
                         {
                             KonyvID = 2,
-                            Cim = "Egri Csillago",
+                            Cim = "Egri Csillagok",
                             Oldalszam = 520,
                             Pontszam = 6,
                             SzerzoID = 3,
@@ -124,7 +124,7 @@ namespace Konyvtar.Migrations
                     b.HasData(
                         new
                         {
-                            szerzoID = 49,
+                            szerzoID = 1,
                             Keresztnev = "Isaac",
                             Vezeteknev = "Asimov"
                         },

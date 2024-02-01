@@ -37,6 +37,5 @@
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
-
     </Grid>
 </Page>

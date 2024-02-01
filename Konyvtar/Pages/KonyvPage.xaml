@@ -30,23 +30,23 @@
             <Label Content="Könyv adatok:" Width="100"/>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label Content="Könyv címe:" Width="100"/>
-                <TextBox x:Name="nev_TXB" Width="200" Text="{Binding KivKonyv.Cim}"/>
+                <TextBox x:Name="nev_TXB" Width="200" Text="{Binding Cim}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label Content="Oldalszám:" Width="100"/>
-                <TextBox x:Name="oldal_TXB" Width="200" Text="{Binding KivKonyv.Oldalszam}"/>
+                <TextBox x:Name="oldal_TXB" Width="200" Text="{Binding Oldalszam}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label Content="Pontszám:" Width="100"/>
-                <TextBox x:Name="pontszam_TXB" Width="200" Text="{Binding KivKonyv.Pontszam}"/>
+                <TextBox x:Name="pontszam_TXB" Width="200" Text="{Binding Pontszam}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label Content="Típus:" Width="100"/>
-                <ComboBox x:Name="tipus_CBX" Width="200" SelectedItem="{Binding KivKonyv.Tipus}" DisplayMemberPath="Nev"/>
+                <ComboBox x:Name="tipus_CBX" Width="200" SelectedItem="{Binding Tipus}" DisplayMemberPath="Nev"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-                <Button x:Name="mentes_BTN" Content="Mentés" Margin="5" Padding="5" Width="100"/>
-                <Button x:Name="megse_BTN" Content="Mégse" Margin="5" Padding="5" Width="100"/>
+                <Button x:Name="mentes_BTN" Content="Mentés" Margin="5" Padding="5" Width="100" Click="mentes_BTN_Click"/>
+                <Button x:Name="megse_BTN" Content="Mégse" Margin="5" Padding="5" Width="100" Click="megse_BTN_Click"/>
             </StackPanel>
         </StackPanel>
     </Grid>

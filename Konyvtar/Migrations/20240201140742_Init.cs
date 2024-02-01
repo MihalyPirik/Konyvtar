@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Konyvtar.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class Init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -131,9 +131,9 @@ namespace Konyvtar.Migrations
                 columns: new[] { "szerzoID", "Keresztnev", "Vezeteknev" },
                 values: new object[,]
                 {
+                    { 1, "Isaac", "Asimov" },
                     { 2, "Dick", "Philip" },
-                    { 3, "Géza", "Gárdonyi" },
-                    { 49, "Isaac", "Asimov" }
+                    { 3, "Géza", "Gárdonyi" }
                 });
 
             migrationBuilder.InsertData(
@@ -152,7 +152,7 @@ namespace Konyvtar.Migrations
                 values: new object[,]
                 {
                     { 1, "Ember a fellegvárban", 550, 9, 2, 1 },
-                    { 2, "Egri Csillago", 520, 6, 3, 3 }
+                    { 2, "Egri Csillagok", 520, 6, 3, 3 }
                 });
 
             migrationBuilder.CreateIndex(

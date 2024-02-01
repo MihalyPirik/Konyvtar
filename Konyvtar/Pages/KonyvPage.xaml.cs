@@ -26,11 +26,12 @@ namespace Konyvtar.Pages
     {
         KonyvtarContext context = new KonyvtarContext();
 
-        private Konyv _KivKonyv;
+        private Konyv kivKonyv;
+
         public Konyv KivKonyv
         {
-            get { return _KivKonyv; }
-            set { _KivKonyv = value; OnPropertyChanged(nameof(KivKonyv)); }
+            get { return kivKonyv; }
+            set { kivKonyv = value; OnPropertyChanged("KivKonyv"); }
         }
 
 
@@ -50,33 +51,63 @@ namespace Konyvtar.Pages
             context.Tipus.Load();
             szerzok_CBX.ItemsSource = context.Szerzo.Local.ToObservableCollection();
             tipus_CBX.ItemsSource = context.Tipus.Local.ToObservableCollection();
-
-
         }
 
         private void szerzok_CBX_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var lista = context.Konyv.Local.ToObservableCollection().Where(x => x.Szerzo.TeljesNev == ((Szerzo)szerzok_CBX.SelectedItem).TeljesNev).ToList();
+            var lista = context.Konyv.Local.ToObservableCollection().Where(x => x.Szerzo.TeljesNev == ((Szerzo)szerzok_CBX.SelectedItem).TeljesNev);
             konyvek_LB.ItemsSource = lista;
         }
 
         private void uj_BTN_Click(object sender, RoutedEventArgs e)
         {
             konyv_SP.IsEnabled = true;
-            if (String.IsNullOrWhiteSpace(nev_TXB.Text) && tipus_CBX.SelectedItem != null)
+            konyv_SP.DataContext = new Konyv()
             {
-
-            }
-            else
-            {
-                MessageBox.Show("A könyv címét és típusát kötelező megadni!", "Hiba!", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+                Szerzo = (Szerzo)szerzok_CBX.SelectedItem
+            };
         }
 
         private void modosit_BTN_Click(object sender, RoutedEventArgs e)
         {
-            KivKonyv = (Konyv)konyvek_LB.SelectedItem;
-            konyvLista_SP.IsEnabled = true;
+            konyv_SP.DataContext = (Konyv)konyvek_LB.SelectedItem;
+            konyv_SP.IsEnabled = true;
+        }
+
+        private void mentes_BTN_Click(object sender, RoutedEventArgs e)
+        {
+            Konyv k = (Konyv)konyv_SP.DataContext;
+            if (k.KonyvID == 0)
+            {
+                if (!String.IsNullOrWhiteSpace(nev_TXB.Text) && tipus_CBX.SelectedItem != null)
+                {
+                    context.Konyv.Add(k);
+                }
+                else
+                {
+                    MessageBox.Show("A könyv címét és típúsát kötelező megadni!", "Hiba!", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                context.Entry(k).State = EntityState.Modified;
+            }
+            context.SaveChanges();
+            konyv_SP.IsEnabled = false;
+            konyvek_LB.Items.Refresh();
+        }
+
+        private void megse_BTN_Click(object sender, RoutedEventArgs e)
+        {
+            Konyv k = (Konyv)konyvLista_SP.DataContext;
+            if (k.KonyvID != 0)
+            {
+                context.Entry(k).State = EntityState.Unchanged;
+                konyvek_LB.Items.Refresh();
+            }
+            konyv_SP.IsEnabled = false;
+            konyvek_LB.SelectedItem = null;
+            konyvLista_SP.DataContext = null;
         }
     }
 }

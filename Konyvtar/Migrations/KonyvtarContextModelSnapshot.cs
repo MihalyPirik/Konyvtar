@@ -90,7 +90,7 @@ namespace Konyvtar.Migrations
                         new
                         {
                             KonyvID = 2,
-                            Cim = "Egri Csillago",
+                            Cim = "Egri Csillagok",
                             Oldalszam = 520,
                             Pontszam = 6,
                             SzerzoID = 3,
@@ -121,7 +121,7 @@ namespace Konyvtar.Migrations
                     b.HasData(
                         new
                         {
-                            szerzoID = 49,
+                            szerzoID = 1,
                             Keresztnev = "Isaac",
                             Vezeteknev = "Asimov"
                         },
