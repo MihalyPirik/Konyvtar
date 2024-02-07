@@ -37,6 +37,9 @@ namespace Konyvtar.Migrations
                     b.Property<DateTime>("Visszahozas")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<bool>("Visszahozta")
+                        .HasColumnType("tinyint(1)");
+
                     b.HasKey("KolcsonzesID");
 
                     b.HasIndex("KonyvID");

@@ -108,7 +108,8 @@ namespace Konyvtar.Migrations
                     TanuloID = table.Column<int>(type: "int", nullable: true),
                     KonyvID = table.Column<int>(type: "int", nullable: true),
                     Elvitel = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    Visszahozas = table.Column<DateTime>(type: "datetime(6)", nullable: false)
+                    Visszahozas = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    Visszahozta = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
                 {

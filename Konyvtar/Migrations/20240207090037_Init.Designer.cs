@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Konyvtar.Migrations
 {
     [DbContext(typeof(KonyvtarContext))]
-    [Migration("20240201140742_Init")]
+    [Migration("20240207090037_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -39,6 +39,9 @@ namespace Konyvtar.Migrations
 
                     b.Property<DateTime>("Visszahozas")
                         .HasColumnType("datetime(6)");
+
+                    b.Property<bool>("Visszahozta")
+                        .HasColumnType("tinyint(1)");
 
                     b.HasKey("KolcsonzesID");
 

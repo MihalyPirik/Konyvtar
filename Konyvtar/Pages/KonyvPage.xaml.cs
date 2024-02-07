@@ -118,6 +118,7 @@ namespace Konyvtar.Pages
                 if (MessageBox.Show($"Biztosan törölni kívája a(z) {k.Cim} című könyvet?", "megerősítés", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
                     context.Konyv.Remove(k);
+                    context.SaveChanges();
                     konyvek_LB.ItemsSource = context.Konyv.Local.ToObservableCollection();
                 }
             }
