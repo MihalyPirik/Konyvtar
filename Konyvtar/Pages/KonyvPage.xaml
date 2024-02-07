@@ -22,7 +22,7 @@
             <ListBox x:Name="konyvek_LB" Height="250" Margin="5" DisplayMemberPath="Cim"/>
             <Button x:Name="uj_BTN" Content="Új könyv" Margin="5" Padding="5" Click="uj_BTN_Click"/>
             <Button x:Name="modosit_BTN" Content="Módosít" Margin="5" Padding="5" Click="modosit_BTN_Click"/>
-            <Button x:Name="torol_BTN" Content="Töröl" Margin="5" Padding="5"/>
+            <Button x:Name="torol_BTN" Content="Töröl" Margin="5" Padding="5" Click="torol_BTN_Click"/>
         </StackPanel>
         
         <!--Könyv adatok-->

@@ -94,7 +94,7 @@ namespace Konyvtar.Pages
             }
             context.SaveChanges();
             konyv_SP.IsEnabled = false;
-            konyvek_LB.Items.Refresh();
+            konyvek_LB.ItemsSource = context.Konyv.Local.ToObservableCollection();
         }
 
         private void megse_BTN_Click(object sender, RoutedEventArgs e)
@@ -108,6 +108,19 @@ namespace Konyvtar.Pages
             konyv_SP.IsEnabled = false;
             konyvek_LB.SelectedItem = null;
             konyvLista_SP.DataContext = null;
+        }
+
+        private void torol_BTN_Click(object sender, RoutedEventArgs e)
+        {
+            Konyv k = (Konyv)konyvek_LB.SelectedItem;
+            if (konyvek_LB.SelectedItem != null)
+            {
+                if (MessageBox.Show($"Biztosan törölni kívája a(z) {k.Cim} című könyvet?", "megerősítés", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    context.Konyv.Remove(k);
+                    konyvek_LB.ItemsSource = context.Konyv.Local.ToObservableCollection();
+                }
+            }
         }
     }
 }
